@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7f5;
+}
+
+header {
+    background: linear-gradient(to right, #4CAF50, #388E3C);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+.hero {
+    position: relative;
+    background: url('image/healthyliving.jpg') no-repeat center center / cover;
+    text-align: center;
+    padding: 100px 20px 60px;
+    z-index: 1;
+}
+
+    /* Dark overlay to make aqua text pop */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    /* Aqua-colored text with shadow */
+    .hero h1, .hero p {
+        position: relative;
+        z-index: 1;
+        color: aqua;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+
+
+
+    .hero h1 {
+        font-size: 42px;
+        color: lightgreen;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: white;
+    }
+
+.content-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 30px;
+    padding: 40px 60px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 0;
+}
+
+.card * {
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #eee;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.card a button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.card a button:hover {
+    background-color: #388E3C;
+}
+
+/* Unique card background images */
+.card-sleep {
+    background-image: url('image/sleep.jpg');
+}
+
+.card-nutrition {
+    background-image: url('image/nutrition.jpg');
+}
+
+.card-fitness {
+    background-image: url('image/fitness.jpg');
+}
+
+.card-bmi {
+    background-image: url('image/bmicalculator.jpg');
+}
+
+.card-care {
+    background-image: url('image/care.png');
+}
+
+.card-community {
+    background-image: url('image/community.jpg');
+}
+
+
+@media (max-width: 900px) {
+    .content-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .content-section {
+        grid-template-columns: 1fr; /* 1 card per row on small screens */
+        padding: 20px;
+    }
+}
+
+.footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 18px;
+  }
+  
+  .footer p {
+    margin: 12px 0;
+  }
+  
+  .social-icons a {
+    margin: 0 12px;               
+  }
+  
+  .social-icons img {
+    width: 24px;               
+  }
+
+  cookieConsentBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+#cookieConsentBox button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#cookieConsentBox button:hover {
+    background-color: #45a049;
+}

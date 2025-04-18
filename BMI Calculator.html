@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator - Healthy Living</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bmiCalculator.css">
+</head>
+<body>
+
+    <header>
+        <a href="Healthy Living.html" class="logo">Healthy Living</a>
+        <nav>
+            <a href="Healthy Sleep.html">Healthy Sleep</a>
+            <a href="Nutrition.html">Nutrition</a>
+            <a href="Fitness.html">Fitness</a>
+            <a href="BMI Calculator.html">BMI Calculator</a>
+            <a href="Preventive Care.html">Preventive Care</a>
+            <a href="Community.html">Community</a>
+            <a href="About Us.html">About Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Check Your Body Mass Index (BMI)</h2>
+        <input type="number" id="height" placeholder="Enter height in cm"><br>
+        <input type="number" id="weight" placeholder="Enter weight in kg"><br>
+        <button onclick="calculateBMI()">Calculate</button>
+        <div class="result" id="bmiResult"></div>
+        <div class="advice" id="bmiAdvice"></div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById("height").value) / 100;
+            const weight = parseFloat(document.getElementById("weight").value);
+
+            if (!height || !weight) {
+                alert("Please enter both height and weight.");
+                return;
+            }
+
+            const bmi = (weight / (height * height)).toFixed(1);
+            let category = '';
+            let advice = '';
+
+            if (bmi < 18.5) {
+                category = "Underweight";
+                advice = "You may need to gain some weight. Consider a nutritious diet and consult a healthcare provider.";
+            } else if (bmi < 24.9) {
+                category = "Normal weight";
+                advice = "Great job! Maintain your healthy lifestyle with regular activity and a balanced diet.";
+            } else if (bmi < 29.9) {
+                category = "Overweight";
+                advice = "It may help to adopt a more active lifestyle and review your eating habits.";
+            } else {
+                category = "Obese";
+                advice = "You may want to speak with a healthcare professional for personalized advice.";
+            }
+
+            document.getElementById("bmiResult").innerText = `Your BMI is ${bmi} (${category})`;
+            document.getElementById("bmiAdvice").innerText = advice;
+        }
+    </script>
+
+</body>
+</html>
